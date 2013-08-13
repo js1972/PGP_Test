@@ -40,7 +40,7 @@ public class TestPGP {
         String public_key_file = "";
         String passphrase = PASSPHRASE;
 
-        System.out.println("testing PGP encryption...");	
+        System.out.println("testing PGP encryption...");    
 
         File directory = new File (".");
         try {
@@ -73,7 +73,7 @@ public class TestPGP {
             e.printStackTrace();
         }
     }
-	
+    
     public static void testDecrypt(String fileIn, String fileOut, String secretKeyFile) throws Exception {
         PGPFileProcessor p = new PGPFileProcessor();
         p.setInputFileName(fileIn);
@@ -89,7 +89,7 @@ public class TestPGP {
         p.setOutputFileName(fileOut);
         p.setPassphrase(passphrase);
         p.setPublicKeyFileName(publicKeyFile);
-        p.setAsciiArmored(true);  //Makese the cyphertext asicc instead of binary
+        p.setAsciiArmored(true);  //Makese the cyphertext ascii instead of binary
         System.out.println(p.encrypt(PGPCompressedData.UNCOMPRESSED, PGPEncryptedData.CAST5));  //PGPCompressedData.ZIP
     }
 }
