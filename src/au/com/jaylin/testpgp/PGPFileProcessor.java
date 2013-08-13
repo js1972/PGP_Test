@@ -20,8 +20,8 @@ public class PGPFileProcessor {
     private boolean integrityCheck = true;
 
     public boolean encrypt(int compressType, int encryptType) throws Exception {
-        //FileInputStream keyIn = new FileInputStream(publicKeyFileName);
-        InputStream keyIn = getClass().getResourceAsStream(publicKeyFileName);
+        FileInputStream keyIn = new FileInputStream(publicKeyFileName);
+        //InputStream keyIn = getClass().getResourceAsStream(publicKeyFileName);
         FileOutputStream out = new FileOutputStream(outputFileName);
         PGPUtils.encryptFile(out, inputFileName, PGPUtils.readPublicKey(keyIn), asciiArmored, integrityCheck, compressType, encryptType);
         out.close();
